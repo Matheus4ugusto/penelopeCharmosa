@@ -4,6 +4,7 @@ import * as Styled from "./product.style";
 import Image from "next/image";
 import {stores} from "@/utils/stores";
 import {moneyFormat} from "@/utils/moneyFormat";
+import {useState} from "react";
 
 interface ProductInterface {
     params: {
@@ -20,6 +21,8 @@ export default function Product({
                                 }: ProductInterface) {
     const product = stores[storeId].products[productId];
     const sizes = product.sizes.split(",");
+    const [size, setSize] = useState("");
+    console.log(size)
     return (
         <Styled.Display>
             <Image
@@ -35,20 +38,18 @@ export default function Product({
                 <fieldset>
                     <legend>Tamanhos disponíveis:</legend>
                     {sizes.map((i) => (
-                        <>
-                            <div key={`div${i}`}>
+                            <div key={i}>
                                 <input
                                     type="radio"
-                                    id={i ? "i1" : i}
+                                    id={i}
                                     name="i"
-                                    value="i"
-                                    key={`input${i ? "i1" : i}`}
+                                    value={i}
+                                    onChange={(event) => setSize(event.target.value)}
                                 />
-                                <label htmlFor="huey" key={`label${i}`}>
+                                <label htmlFor={i}>
                                     {i}
                                 </label>
                             </div>
-                        </>
                     ))}
                 </fieldset>
                 <button>Adicionar ao Carrinho</button>

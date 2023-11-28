@@ -77,4 +77,5 @@ export const Data = styled.section`
       transform: scale(1.01);
     }
   }
+  
 `;

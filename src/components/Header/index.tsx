@@ -6,7 +6,7 @@ const Header = () => {
     const {push} = useRouter();
     return (
         <Styled.Header>
-            <div id="superiorDiv">
+            <Styled.SuperiorDiv>
                 <Styled.Logo onClick={() => push("/")}>
                     <Image
                         src="/imgs/favIcon.ico"
@@ -15,10 +15,10 @@ const Header = () => {
                         alt="logo contendo imagem da Penelope Charmosa"
                     />
                 </Styled.Logo>
-            </div>
-            <div id="inferiorDiv">
+            </Styled.SuperiorDiv>
+            <Styled.InferiorDiv>
                 <p>Penelope Charmosa</p>
-            </div>
+            </Styled.InferiorDiv>
         </Styled.Header>
     );
 };
