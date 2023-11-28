@@ -4,10 +4,15 @@ import {useRouter} from "next/navigation";
 
 const Header = () => {
     const {push} = useRouter();
+    const switchToHome = () =>{
+        push("/");
+        //window.location.reload();
+        //TODO fazer com que a página atualize depois de chegar na home
+    }
     return (
         <Styled.Header>
             <Styled.SuperiorDiv>
-                <Styled.Logo onClick={() => push("/")}>
+                <Styled.Logo onClick={switchToHome}>
                     <Image
                         src="/imgs/favIcon.ico"
                         width={96}

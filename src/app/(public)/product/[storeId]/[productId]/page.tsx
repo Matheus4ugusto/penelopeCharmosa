@@ -13,7 +13,6 @@ interface ProductInterface {
     };
 }
 
-//TODO adicionar a opção de selecionar o tamanho usando inputs do tipo radio
 //TODO adicionar função de adicionar ao carrinho
 //TODO adicionar a função de selecionar quantidade de produtos
 export default function Product({
