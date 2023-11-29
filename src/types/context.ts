@@ -1,10 +1,12 @@
+import {ProductsProps} from "@/types/storeTypes";
+
 export interface CartContextProps {
-    addToCart: () => void;
-    removeFromCart: () => void;
+    addToCart: (values: ProductsProps) => void;
+    removeFromCart: (values: ProductsProps) => void;
     clearCart: () => void;
     openAsideCart: () => void;
     closeAsideCart: () => void;
     asideCart: boolean;
-    getProducts: () => void;
-    total: number
+    //getProducts: Function;
+    //total: number;
 }

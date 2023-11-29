@@ -1,6 +1,7 @@
 import Image from "next/image";
 import * as Styled from "./header.style";
 import {useRouter} from "next/navigation";
+import {useEffect} from "react";
 
 const Header = () => {
     const {push} = useRouter();
@@ -9,6 +10,7 @@ const Header = () => {
         //window.location.reload();
         //TODO fazer com que a página atualize depois de chegar na home
     }
+
     return (
         <Styled.Header>
             <Styled.SuperiorDiv>

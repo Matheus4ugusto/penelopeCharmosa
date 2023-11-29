@@ -6,7 +6,8 @@ export interface ProductsProps {
     category: string;
     sizes: string;
     colors: string;
-    storeId?: number;
+    storeId: number;
+    amount?: number;
 }
 
 export interface StoreProps {
