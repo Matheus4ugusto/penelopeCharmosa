@@ -6,17 +6,10 @@ import ProductDataInCart from "@/components/ProductDataInCart";
 import {moneyFormat} from "@/utils/moneyFormat";
 
 const CartBox: React.FC = () => {
-    const {total, clearCart} = useCart();
-    let products: ProductsProps[] | null = null;
+    const {total, clearCart, getProducts} = useCart();
     const handleTotal = total();
-    if (typeof window !== "undefined") {
-        const storedCart = localStorage.getItem("cart");
-        if (storedCart) {
-            products = JSON.parse(storedCart);
-        }
-    }
+    const products = getProducts()
 
-    console.log(products);
 
     return (
         <Styled.Box>

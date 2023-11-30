@@ -38,7 +38,7 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
     const clearCart = () => {
         if (typeof window !== 'undefined') {
             localStorage.removeItem('cart');
-            window.location.reload();
+            // Atualizar o estado do contexto, se necessário
         }
     };
 
@@ -64,6 +64,16 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
         }
     };
 
+    const getProducts = () => {
+        if (typeof window !== undefined) {
+            const storedCart = localStorage.getItem("cart");
+            let products: ProductsProps[] | null = null;
+            if (storedCart) {
+                products = JSON.parse(storedCart);
+            }
+            return products;
+        }
+    }
     return (
         <CartContext.Provider
             value={{
@@ -74,6 +84,7 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
                 asideCart,
                 removeFromCart,
                 total,
+                getProducts
             }}
         >
             {children}

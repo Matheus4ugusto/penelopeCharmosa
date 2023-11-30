@@ -8,4 +8,5 @@ export interface CartContextProps {
     closeAsideCart: () => void;
     asideCart: boolean;
     total: Function;
+    getProducts: Function;
 }
