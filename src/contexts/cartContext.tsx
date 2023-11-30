@@ -3,7 +3,6 @@ import {CartContextProps} from "@/types/context";
 import {ProductsProps} from "@/types/storeTypes";
 
 export const CartContext = createContext<CartContextProps>({} as CartContextProps);
-
 const CartContextProvider = ({children}: { children: ReactNode }) => {
     const [asideCart, setAsideCart] = useState<boolean>(false);
 
@@ -16,58 +15,67 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
     };
 
     const addToCart = (values: ProductsProps) => {
-        let handleBuy: ProductsProps[] = JSON.parse(localStorage.getItem("cart") || '[]');
+        if (typeof window !== 'undefined') {
+            let handleBuy: ProductsProps[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
-        // Verifica se o produto já está no carrinho
-        if (!handleBuy.find(item => JSON.stringify(item) === JSON.stringify(values))) {
-            handleBuy.push(values);
-            localStorage.setItem("cart", JSON.stringify(handleBuy));
-            console.log(JSON.parse(localStorage.getItem("cart") || '[]'));
+            // Verifica se o produto já está no carrinho
+            if (!handleBuy.find(item => JSON.stringify(item) === JSON.stringify(values))) {
+                handleBuy.push(values);
+                localStorage.setItem('cart', JSON.stringify(handleBuy));
+                console.log(JSON.parse(localStorage.getItem('cart') || '[]'));
+            }
         }
     };
 
     const removeFromCart = (values: ProductsProps) => {
-        let handleRemoveFromCart: ProductsProps[] = JSON.parse(localStorage.getItem("cart") || '[]');
-        handleRemoveFromCart = handleRemoveFromCart.filter(item => item !== values);
-        localStorage.setItem("cart", JSON.stringify(handleRemoveFromCart));
+        if (typeof window !== 'undefined') {
+            let handleRemoveFromCart: ProductsProps[] = JSON.parse(localStorage.getItem('cart') || '[]');
+            handleRemoveFromCart = handleRemoveFromCart.filter(item => item !== values);
+            localStorage.setItem('cart', JSON.stringify(handleRemoveFromCart));
+        }
     };
 
     const clearCart = () => {
-        localStorage.removeItem("cart");
-        window.location.reload();
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem('cart');
+            window.location.reload();
+        }
     };
 
     const total = () => {
-        let handleTotal;
-        let handleValues = [];
+        if (typeof window !== 'undefined') {
+            let handleTotal;
+            let handleValues = [];
 
-        if (localStorage.getItem("cart") === null) {
-            return 0; // Se o carrinho estiver vazio, o total é zero
+            if (localStorage.getItem('cart') === null) {
+                return 0; // Se o carrinho estiver vazio, o total é zero
+            }
+
+            handleTotal = JSON.parse(localStorage.getItem('cart') as string);
+
+            let totalSum = 0;
+
+            for (let i = 0; i < handleTotal.length; i++) {
+                handleValues.push(handleTotal[i].price);
+                totalSum += handleTotal[i].price;
+            }
+
+            return totalSum;
         }
-
-        handleTotal = JSON.parse(localStorage.getItem("cart") as string);
-
-        let totalSum = 0;
-
-        for (let i = 0; i < handleTotal.length; i++) {
-            handleValues.push(handleTotal[i].price);
-            totalSum += handleTotal[i].price;
-        }
-
-        return totalSum;
-    }
-
+    };
 
     return (
-        <CartContext.Provider value={{
-            openAsideCart,
-            closeAsideCart,
-            addToCart,
-            clearCart,
-            asideCart,
-            removeFromCart,
-            total
-        }}>
+        <CartContext.Provider
+            value={{
+                openAsideCart,
+                closeAsideCart,
+                addToCart,
+                clearCart,
+                asideCart,
+                removeFromCart,
+                total,
+            }}
+        >
             {children}
         </CartContext.Provider>
     );
