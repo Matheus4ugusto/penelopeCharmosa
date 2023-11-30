@@ -54,4 +54,5 @@ export const StoresDisplay = styled.section`
   }
 
   flex-grow: 1;
+  
 `;

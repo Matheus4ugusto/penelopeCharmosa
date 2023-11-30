@@ -13,8 +13,6 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="pt-br">
-        <body>
         <StyledComponentsRegistry>
             <GlobalStyles/>
             <Providers>
@@ -23,7 +21,5 @@ export default function RootLayout({
                 <Footer/>
             </Providers>
         </StyledComponentsRegistry>
-        </body>
-        </html>
     );
 }

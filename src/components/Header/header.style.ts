@@ -29,4 +29,18 @@ export const SuperiorDiv = styled.div`
   display: flex;
   gap: 1.1rem;
   align-items: center;
+  justify-content: space-between;
 `;
+
+export const DivButton = styled.div`
+ padding: 2rem;
+`
+
+export const DivLogo = styled.div`
+
+`
+
+export const Button = styled.button`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors.chocolate.primary};
+`

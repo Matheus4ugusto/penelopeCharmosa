@@ -11,10 +11,8 @@ const Footer: React.FC = () => {
             <Styled.Section id="aboutUs">
                 <h1>Penelope Charmosa</h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nihil
-                    nisi maiores vero veniam omnis eum possimus, sapiente ratione fuga.
-                    Ducimus illo recusandae quia expedita velit eos exercitationem ipsam
-                    ipsa.
+                    Um app de moda com entregas rápidas, semelhante ao iFood, que simplifica a escolha do cliente.
+                    Também promove pequenos empreendedores locais, impulsionando a economia regional.
                 </p>
             </Styled.Section>
             <Styled.Section id="socialMedia">
@@ -22,7 +20,7 @@ const Footer: React.FC = () => {
                 <ul>
                     <li>
                         <a
-                            href="https://www.instagram.com/penelope.charmosa.app/#"
+                            href="https://www.instagram.com/penelope_charmosa_app"
                             target="blank"
                         >
                             <AiOutlineInstagram/> Instagram

@@ -45,4 +45,5 @@ export const Products = styled.section`
   }
   flex-grow: 1;
   overflow: hidden;
+  
 `;
