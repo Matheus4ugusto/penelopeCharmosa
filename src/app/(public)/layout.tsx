@@ -13,17 +13,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="pt-br">
-        <body>
         <StyledComponentsRegistry>
             <GlobalStyles/>
             <Providers>
                 <Header/>
-                <main /*style={{minHeight: "100%", width: "100%"}}*/>{children}</main>
+                <main>{children}</main>
                 <Footer/>
             </Providers>
         </StyledComponentsRegistry>
-        </body>
-        </html>
     );
 }
