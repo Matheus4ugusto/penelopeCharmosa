@@ -1,20 +1,23 @@
-import * as Styled from "./cartBox.style";
-import {useCart} from "@/contexts/cartContext";
-import React from "react";
-import {ProductsProps} from "@/types/storeTypes";
-import ProductDataInCart from "@/components/ProductDataInCart";
-import {moneyFormat} from "@/utils/moneyFormat";
+import React, {useEffect, useState} from 'react'; // Importe useState
+import * as Styled from './cartBox.style';
+import {useCart} from '@/contexts/cartContext';
+import {ProductsProps} from '@/types/storeTypes';
+import ProductDataInCart from '@/components/ProductDataInCart';
+import {moneyFormat} from '@/utils/moneyFormat';
 
 const CartBox: React.FC = () => {
     const {total, clearCart} = useCart();
-    let products: ProductsProps[] | null = null;
+    const [products, setProducts] = useState<ProductsProps[] | null>(null); // Use useState para definir o estado de 'products'
     const handleTotal = total();
-    if (typeof window !== "undefined") {
-        const storedCart = localStorage.getItem("cart");
-        if (storedCart) {
-            products = JSON.parse(storedCart);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+                setProducts(JSON.parse(storedCart)); // Atualize o estado usando setProducts
+            }
         }
-    }
+    }, []); // O array de dependências vazio garante que esse efeito seja executado apenas uma vez após a renderização inicial
 
     console.log(products);
 
