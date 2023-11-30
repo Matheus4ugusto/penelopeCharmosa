@@ -65,7 +65,7 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
     };
 
     const getProducts = () => {
-        if (typeof window !== undefined) {
+        if (typeof window !== 'undefined') {
             const storedCart = localStorage.getItem("cart");
             let products: ProductsProps[] | null = null;
             if (storedCart) {
