@@ -7,6 +7,13 @@ export const Display = styled.section`
   align-items: center;
   gap: 1rem;
 
+  @media(max-width: 1920px){
+    margin-bottom: 15rem;
+  }
+  @media(max-width: 1440px){
+    margin-bottom: 21rem;
+  }
+
   #image {
     object-fit: cover;
     width: 400px;

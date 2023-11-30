@@ -8,7 +8,7 @@ export const RecommendedDisplay = styled.section`
 export const H1 = styled.h1`
   margin: 1rem 1rem;
   font-size: 2rem;
-  color: ${({theme}) => theme.colors.chocolate.primary};
+  color: ${({ theme }) => theme.colors.chocolate.primary};
 `;
 
 export const Div = styled.div`
@@ -39,12 +39,12 @@ export const StoresDisplay = styled.section`
   h1 {
     margin: 3rem 1rem 0 1rem;
     font-size: 2rem;
-    color: ${({theme}) => theme.colors.chocolate.primary};
+    color: ${({ theme }) => theme.colors.chocolate.primary};
   }
 
   display: flex;
   flex-direction: column;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 
   section {
     width: 100%;
@@ -54,5 +54,11 @@ export const StoresDisplay = styled.section`
   }
 
   flex-grow: 1;
-  
+
+  @media (max-width: 1920px) {
+    margin-bottom: 5rem;
+  }
+  @media (max-width: 1440px) {
+    margin-bottom: 13rem;
+  }
 `;

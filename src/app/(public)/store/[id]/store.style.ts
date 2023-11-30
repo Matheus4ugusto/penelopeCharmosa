@@ -21,6 +21,18 @@ export const Products = styled.section`
       }
     }
   }
+  @media(max-width: 1920px){
+    margin-bottom: 11rem;
+  }
+  @media(max-width: 1440px){
+    margin-bottom: 17rem;
+  }
+  @media(max-width: 1024px){
+    margin-bottom: 10rem;
+  }
+  @media(max-width: 768px) {
+    margin-bottom: 7rem;
+  }
   #div {
     width: 100%;
     flex-direction: row;
