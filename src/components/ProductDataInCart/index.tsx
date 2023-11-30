@@ -15,7 +15,7 @@ const ProductDataInCart: React.FC<ProductsProps> = ({
     return (
         <Styled.Div>
             <h1>1x {name}</h1>
-            <h2>{moneyFormat(price)}</h2>
+            <h2>preço</h2>
             <h2>{sizes}</h2>
         </Styled.Div>
     )

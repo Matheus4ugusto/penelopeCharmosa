@@ -53,7 +53,7 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
 
             handleTotal = JSON.parse(localStorage.getItem('cart') as string);
 
-            let totalSum = 0;
+            let totalSum:number = 0;
 
             for (let i = 0; i < handleTotal.length; i++) {
                 handleValues.push(handleTotal[i].price);

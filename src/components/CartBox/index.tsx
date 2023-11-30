@@ -9,6 +9,8 @@ const CartBox: React.FC = () => {
     const {total, clearCart, getProducts} = useCart();
     const handleTotal = total();
     const products = getProducts()
+    console.log(handleTotal);
+    
 
 
     return (
@@ -29,7 +31,7 @@ const CartBox: React.FC = () => {
                     )) : <h1>O carrinho está vazio!</h1>}
             </Styled.Div>
             <Styled.PriceDiv>
-                <h1>{`Total: ${moneyFormat(handleTotal)}`}</h1>
+                <h1>Total</h1>
                 <button disabled={true}>Finalizar Compra</button>
                 <button onClick={clearCart}>Limpar o Carrinho</button>
             </Styled.PriceDiv>
