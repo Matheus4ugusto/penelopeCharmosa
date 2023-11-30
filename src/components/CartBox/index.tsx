@@ -23,6 +23,7 @@ const CartBox: React.FC = () => {
         fetchData();
     }, []); // O array de dependências vazio garante que esse efeito seja executado apenas uma vez após a renderização inicial
 
+
     console.log(products);
 
     return (
