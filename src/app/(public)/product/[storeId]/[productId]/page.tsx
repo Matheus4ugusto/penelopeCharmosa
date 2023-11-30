@@ -21,7 +21,6 @@ export default function ({
                         name={product.name}
                         price={product.price}
                         image={product.image}
-                        category={product.category}
                         sizes={product.sizes}
                         colors={product.colors}
                         storeId={product.storeId}/>

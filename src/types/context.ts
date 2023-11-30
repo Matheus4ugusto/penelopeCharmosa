@@ -7,6 +7,5 @@ export interface CartContextProps {
     openAsideCart: () => void;
     closeAsideCart: () => void;
     asideCart: boolean;
-    //getProducts: Function;
-    //total: number;
+    total: Function;
 }

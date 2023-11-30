@@ -3,7 +3,8 @@ import {ProductsProps} from "@/types/storeTypes";
 import Image from "next/image";
 import {moneyFormat} from "@/utils/moneyFormat";
 import {getProductById} from "@/services/product.service";
-import {useState} from "react";
+import {MouseEventHandler, useState} from "react";
+import {useCart} from "@/contexts/cartContext";
 
 
 interface ProductInterface {
@@ -18,7 +19,6 @@ const ProductSellBox:React.FC<ProductsProps> = ({
     name,
     price,
     image,
-    category,
     sizes,
     colors,
     storeId,
@@ -27,6 +27,13 @@ const ProductSellBox:React.FC<ProductsProps> = ({
     const product = getProductById(storeId, id);
     const sizes1 = product.sizes.split(",");
     const [size, setSize] = useState("");
+    const {addToCart, total} = useCart();
+    const handleClick: MouseEventHandler<HTMLButtonElement> = () =>{
+        if(size === ""){
+            return
+        }
+        addToCart({...product, sizes: size})
+    }
 
     return(
         <Styled.Display>
@@ -49,6 +56,7 @@ const ProductSellBox:React.FC<ProductsProps> = ({
                                 id={i}
                                 name="i"
                                 value={i}
+                                required={true}
                                 onChange={(event) => setSize(event.target.value)}
                             />
                             <label htmlFor={i}>
@@ -57,7 +65,7 @@ const ProductSellBox:React.FC<ProductsProps> = ({
                         </div>
                     ))}
                 </fieldset>
-                <button>Adicionar ao Carrinho</button>
+                <button onClick={handleClick}>Adicionar ao Carrinho</button>
             </Styled.Data>
         </Styled.Display>
     )

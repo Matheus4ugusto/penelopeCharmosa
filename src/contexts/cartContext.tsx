@@ -17,9 +17,13 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
 
     const addToCart = (values: ProductsProps) => {
         let handleBuy: ProductsProps[] = JSON.parse(localStorage.getItem("cart") || '[]');
-        handleBuy.push(values);
-        localStorage.setItem("cart", JSON.stringify(handleBuy));
-        console.log(handleBuy)
+
+        // Verifica se o produto já está no carrinho
+        if (!handleBuy.find(item => JSON.stringify(item) === JSON.stringify(values))) {
+            handleBuy.push(values);
+            localStorage.setItem("cart", JSON.stringify(handleBuy));
+            console.log(JSON.parse(localStorage.getItem("cart") || '[]'));
+        }
     };
 
     const removeFromCart = (values: ProductsProps) => {
@@ -32,9 +36,26 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
         localStorage.removeItem("cart");
     };
 
-    /*const total = () => {
-        localStorage.getItem("cart");
-    }*/
+    const total = () => {
+        let handleTotal;
+        let handleValues = [];
+
+        if(localStorage.getItem("cart") === null){
+            return 0; // Se o carrinho estiver vazio, o total é zero
+        }
+
+        handleTotal = JSON.parse(localStorage.getItem("cart") as string);
+
+        let totalSum = 0;
+
+        for (let i = 0; i < handleTotal.length; i++) {
+            handleValues.push(handleTotal[i].price);
+            totalSum += handleTotal[i].price;
+        }
+
+        return totalSum;
+    }
+
 
     return (
         <CartContext.Provider value={{
@@ -43,7 +64,8 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
             addToCart,
             clearCart,
             asideCart,
-            removeFromCart
+            removeFromCart,
+            total
         }}>
             {children}
         </CartContext.Provider>
