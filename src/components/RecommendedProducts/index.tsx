@@ -19,7 +19,7 @@ const RecommendedProducts: React.FC<StoreProps> = ({
             </Link>
             <Styled.Info>
                 <Styled.Name>{products[number].name}</Styled.Name>
-                <Styled.Description>{storeDescription}</Styled.Description>
+                <Styled.Description>{name}</Styled.Description>
             </Styled.Info>
         </Styled.Div>
     );

@@ -19,7 +19,7 @@ export default function RootLayout({
             <GlobalStyles/>
             <Providers>
                 <Header/>
-                <main>{children}</main>
+                <main /*style={{minHeight: "100%", width: "100%"}}*/>{children}</main>
                 <Footer/>
             </Providers>
         </StyledComponentsRegistry>

@@ -1,10 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-import { CartContextProps } from "@/types/context";
-import { ProductsProps } from "@/types/storeTypes";
+import {createContext, ReactNode, useContext, useState} from "react";
+import {CartContextProps} from "@/types/context";
+import {ProductsProps} from "@/types/storeTypes";
 
 export const CartContext = createContext<CartContextProps>({} as CartContextProps);
 
-const CartContextProvider = ({ children }: { children: ReactNode }) => {
+const CartContextProvider = ({children}: { children: ReactNode }) => {
     const [asideCart, setAsideCart] = useState<boolean>(false);
 
     const openAsideCart = () => {
@@ -34,13 +34,14 @@ const CartContextProvider = ({ children }: { children: ReactNode }) => {
 
     const clearCart = () => {
         localStorage.removeItem("cart");
+        window.location.reload();
     };
 
     const total = () => {
         let handleTotal;
         let handleValues = [];
 
-        if(localStorage.getItem("cart") === null){
+        if (localStorage.getItem("cart") === null) {
             return 0; // Se o carrinho estiver vazio, o total é zero
         }
 

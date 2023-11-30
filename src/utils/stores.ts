@@ -1,7 +1,7 @@
 export const stores = [
     {
         id: 0,
-        name: "Loja 01",
+        name: "La Belle Feme",
         products: [
             {
                 id: 0,
@@ -44,7 +44,7 @@ export const stores = [
     },
     {
         id: 1,
-        name: "Loja 02",
+        name: "Chic Boutique",
         products: [
             {
                 id: 0,
@@ -83,11 +83,11 @@ export const stores = [
                 storeId: 1,
             },
         ],
-        storeDescription: "Loja 02",
+        storeDescription: "Loja 2",
     },
     {
         id: 2,
-        name: "Loja 03",
+        name: "Sempre Fashion",
         products: [
             {
                 id: 0,
@@ -130,7 +130,7 @@ export const stores = [
     },
     {
         id: 3,
-        name: "Loja 04",
+        name: "Inova Moda",
         products: [
             {
                 id: 0,

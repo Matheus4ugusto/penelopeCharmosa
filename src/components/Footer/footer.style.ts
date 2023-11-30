@@ -34,6 +34,10 @@ export const Footer = styled.footer`
     gap: 0.5rem;
     position: relative;
   }
+  
+  @media(max-width: 768px){
+    //position: relative;
+  }
 `;
 
 export const Section = styled.section`
