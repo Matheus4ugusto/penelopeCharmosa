@@ -12,7 +12,7 @@ interface ProductInterface {
 
 //TODO adicionar função de adicionar ao carrinho
 //TODO adicionar a função de selecionar quantidade de produtos
-export default function ({
+export default function Product({
                              params: {storeId, productId},
                          }: ProductInterface) {
     const product = stores[storeId].products[productId];
