@@ -31,7 +31,7 @@ const CartBox: React.FC = () => {
                     )) : <h1>O carrinho está vazio!</h1>}
             </Styled.Div>
             <Styled.PriceDiv>
-                <h1>Total</h1>
+                <h1>Total R${handleTotal != undefined ? handleTotal : 0},00</h1>
                 <button disabled={true}>Finalizar Compra</button>
                 <button onClick={clearCart}>Limpar o Carrinho</button>
             </Styled.PriceDiv>

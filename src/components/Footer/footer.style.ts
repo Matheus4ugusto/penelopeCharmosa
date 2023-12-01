@@ -4,8 +4,8 @@ export const Footer = styled.footer`
   width: 100%;
   display: flex;
   flex-grow: 1;
-  position: absolute;
-  bottom: 0;
+  //position: absolute;
+  //bottom: 0;
   justify-content: space-around;
   background-color: ${({theme}) => theme.colors.pink.primary};
   color: ${({theme}) => theme.colors.chocolate.primary};

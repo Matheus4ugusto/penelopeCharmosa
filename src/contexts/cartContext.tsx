@@ -38,6 +38,7 @@ const CartContextProvider = ({children}: { children: ReactNode }) => {
     const clearCart = () => {
         if (typeof window !== 'undefined') {
             localStorage.removeItem('cart');
+            window.location.reload();
             // Atualizar o estado do contexto, se necessário
         }
     };

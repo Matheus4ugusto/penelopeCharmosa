@@ -11,6 +11,13 @@ export const Box = styled.div`
   border-radius: 10px;
   @media (max-width: 768px) {
     margin-top: 1.5rem;
+    margin-bottom: 10rem;
+  }
+  @media(max-width: 1920px){
+    margin-bottom: 8rem
+  }
+  @media(max-width: 1440px){
+    margin-bottom: 14rem;
   }
   @media (max-width: 435px) {
     margin-bottom: 2rem;
